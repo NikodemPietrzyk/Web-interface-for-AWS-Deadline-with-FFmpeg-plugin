@@ -60,15 +60,8 @@ foreach ($listOfDirectories as &$file){
     }
     $i++;
 }
-// echo(print_r($listOfDirectories));
+
 $listOfDirectories = array_values($listOfDirectories);
-
-
-//$listOfDirectories = json_decode($listOfDirectories);
-// if (($key = array_search('strawberry', $array)) !== false) {
-//     unset($array[$key]);
-// }
-
 
 echo json_encode($listOfDirectories);
 
