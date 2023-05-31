@@ -1,0 +1,297 @@
+.pageContainer{
+    display: grid;
+    grid-row-start: 2;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr 30px 5fr;
+    justify-items: center;
+  }
+
+
+  .presetContainerWrapper{
+    height: fit-content;
+    overflow: hidden;
+    max-width: 90vmax;
+    
+    grid-row-start: 2;
+    grid-column-start: 2;
+    /* box-shadow: #000;
+    box-shadow: 200px; */
+    /* border-style: solid; */
+    border-color: #1b1a1a;
+    border-radius: 25px 25px 0px 0px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  .presetContainer{
+  overflow-y: auto;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  /* border-radius: 0px 0px 25px 25px; */
+  /* border-style: solid; */
+  /* border-left: solid;
+  border-right: solid;
+  border-color: #1b1a1a; */
+  outline: #000;
+  }
+
+
+
+
+
+.presetHeader{
+    display: grid;
+    padding: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* grid-row-start: 1;
+    grid-column-start: 2; */
+    grid-auto-columns: 100px;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+    grid-auto-flow: column;
+    z-index: 1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+
+
+  .preset{
+    display: grid;
+    grid-auto-columns: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+    grid-auto-rows: 80px;
+    align-items: center;
+    border-color: #1b1a1a;
+    border-bottom: solid;
+    border-width: 1px;
+    gap: 10px;
+    position: relative;
+    min-width: max-content;
+  }
+
+
+  .preset:nth-child(even){
+    background-color:#e0e0e0;
+  }
+  .preset:nth-child(odd){
+    background-color:#cccccc;
+  }
+  .preset:nth-child(odd):hover{
+    background-color:#c2c2c2;
+    /* filter: brightness(105%); */
+    transition-delay: 50ms;
+  }
+
+  .preset:nth-child(even):hover{
+    background-color: #ebebeb;
+    /* filter: brightness(105%); */
+    transition-delay: 1120ms transform ease-in-out;
+  }
+
+  .preset:last-of-type{
+    border: none;
+  }
+
+  .namePreset{
+    grid-column-start: 1;
+    width: 70px;
+    justify-self: center;
+    text-align: center;
+    text-overflow: ellipsis;
+    background-color: inherit;
+    border-style: none;
+  }
+  .codecPreset{
+    grid-column-start: 2;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+  }
+  .widthPreset{
+    grid-column-start: 3;
+  }
+  .heightPreset{
+    grid-column-start: 4;
+  }
+  .bitratePreset{
+    grid-column-start: 5;
+  }
+  .frameRatePreset{
+    grid-column-start: 6;
+    align-self: center;
+  }
+  .audioPreset{
+    grid-column-start: 7;
+    justify-self: center;
+  }
+  .audioBitratePreset{
+    grid-column-start: 8;
+  }
+  .mailPreset{
+    grid-column-start: 9;
+    justify-self: center;
+  }
+  .updateButtonContainer{
+    grid-column-start: 10;
+  }
+  .deleteButtonContainer{
+    grid-column-start: 11;
+  }
+
+
+
+  input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: var(--form-background);
+    /* Not removed via appearance */
+    margin: 0;
+  
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+  }
+  
+  input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
+  input:invalid{
+    background-color: red;
+  }
+  
+
+
+  .button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: #6E6D70;
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+    color: #DFDEDF;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  
+  .button:hover {
+    box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+    outline: 0;
+  }
+  .button:active {
+    background-color: #DFDEDF;
+    color: #6E6D70;;
+    outline: 0;
+  }
+
+
+  select {
+    appearance: none;
+    cursor: pointer;
+    height:40px;
+    border: none;
+    background-color:inherit;
+    backdrop-filter: brightness(90%);
+    border: #000 solid 1px;
+    border-radius: 5px;
+    cursor:pointer;
+    color: inherit;
+    text-align: center;
+    scrollbar-width: thin;
+  }
+  
+  select:hover {
+    appearance: none;
+    cursor: pointer;
+    height:40px;
+    backdrop-filter: brightness(70%);
+    cursor:pointer;
+    color: rgb(255, 255, 255);
+  }
+  
+  option{
+    appearance: none;
+    color: rgb(0, 0, 0);
+    background-color: inherit;
+    text-align: center;
+  }
+
+
+
+
+  input[type=text]:hover {
+    color: inherit;
+    border-radius: 10px;
+    border-style: dotted;
+    text-align: center;
+    overflow: hidden;
+    transition-delay: 25ms;
+  }
+  
+  input[type=number]{
+    appearance: textfield;
+  }
+  
+  
+  input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+    appearance:none!important;
+    margin: 0;
+  }
+  /* do poprwwaienia na dole */
+  
+  .heightPreset, .bitratePreset, .widthPreset{
+    background-color: inherit;
+    color: inherit;
+    border-style: none;
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  
+  .heightPreset:hover, .bitratePreset:hover, .widthPreset:hover{
+    color: inherit;
+    border-radius: 10px;
+    border-style: dotted;
+    text-align: center;
+    overflow: hidden;
+    transition-delay: 25ms;
+  }
+  
+    
+    .presetDropDown::-webkit-scrollbar{
+      display: none;
+      scrollbar-width: none; 
+    }
+  

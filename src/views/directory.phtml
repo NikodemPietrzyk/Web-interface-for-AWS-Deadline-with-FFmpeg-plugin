@@ -1,0 +1,48 @@
+<?php
+require "src/partial/header.php";
+if(!is_logged_in()){
+  header('Location: home');
+}
+?>
+
+
+<div class ="pageContainer">
+    <div class="inputContainer">
+    <input type="text" class="searchInput" id="myinput" placeholder="Search..." class="inputFilter">
+    </div>
+    <div class = "tableContainer">
+    <table class="center">
+      <thead><tr>
+        <th><span id="name">Name</span></th>
+      </tr></thead>
+      <tbody id="mytable">
+      </tbody>
+      </form>
+    </table>
+    </div>
+    <div class="container" id="container"></div>
+</div>
+
+<div id="modaSource" class="modal-source">
+    <div class="modal-source-content">
+      <div class="modal-source-header">
+      <span class="close">&times;</span>
+        <div class="modal-header-text">Source</div>
+        
+    </div>
+    <div class="modal-table-wrapper">
+      <table class="sourceTableModal">
+        <tbody id="sourceTable">
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-source-footer">
+        <a href="jobForm" class="buttonSubmitter" ><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+</div>
+  
+<?php
+require "src/partial/footer.php";
+?>
