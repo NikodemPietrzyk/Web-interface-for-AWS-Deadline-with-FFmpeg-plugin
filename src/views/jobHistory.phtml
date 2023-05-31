@@ -1,0 +1,91 @@
+<?php
+require "src/partial/header.php";
+if(!is_logged_in()){
+    header('Location: home');
+}
+require "functions/jobHistoryController.php";
+
+debug_to_console($_SESSION["user_id"]);
+
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+  
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+
+?>
+<div class="pageContainer">
+<div class="jobContainerWrapper">
+  
+  <div class = "jobHeader">
+    <div class ="dateHeader">Date</div>
+    <!-- <div class ="containerHeader">Container</div> -->
+    <div class ="heightHeader">Name</div>
+    <div class ="statusHeader">Status</div>
+    <div class ="idHeader">Id</div>
+    <div class ="presetHeader">Preset</div>
+  </div>
+  
+  
+    <div class="jobContainer" id="jobContainer">
+
+
+<?php
+
+
+foreach ($result as $row)  {
+    $fileParts = explode("/", $row["output_file"]);
+    $outputName = substr(end($fileParts), 0, -4);
+    if($row["preset_user_id"]){
+        $preset = $row["preset_user_id"];
+    }elseif($row["preset_global_id"]){
+        $preset = $row["preset_global_id"];
+    }else{
+        $preset = "custom";
+    }
+    echo('<form method="post" action="" class="job" onsubmit="validateResubmit(event);">');
+    echo('<input type="hidden" name="usedPreset" value="' . $preset . '">');
+    echo('<input type="hidden" name="originalName" value="' . $outputName . '">');
+    echo("<div class=date>" . $row["submission_date"] . "</div>");
+    echo('<input class="outputName" name="outputName" autocomplete="off" type="text" value="' . $outputName . '">'); 
+    echo("<div class=status>" . $row["status"] . "</div>");
+    echo("<div class=jobId>" . $row["job_id"] . "</div>");
+    echo('<select class="preset" name="preset">');
+    echo('<option value="custom">Custom</option>');
+
+    foreach ($result_options as $row_options) {
+        if ($preset == $row_options["id"]) {
+            echo "<option value='" . $row_options["id"] . "' selected>" . $row_options["name"] . "</option>";
+        } else {
+            echo "<option value='" . $row_options["id"] . "'>" . $row_options["name"] . "</option>";
+        }
+    }
+
+    echo("</select>");
+    echo('<div class="buttonContainer"><input class="button" name="type" type="submit" value="Resubmit"></div>');
+    echo('</form>');
+}
+
+echo "</div>";
+// Display the pagination links
+echo '<div class="paginationContainer">';
+echo '<div class="pagination">';
+for ($i = 1; $i <= $total_pages; $i++) {
+    if ($i == $current_page) {
+        echo '<span class="buttonLinkActive">'.$i.'</span>';
+    } else {
+        echo '<a href="?page='.$i.'" class="buttonLink">'.$i.'</a>';
+    }
+}
+echo "</div>";
+echo "</div>";
+?>
+</div>
+</div>
+</div>
+<?php
+require "src/partial/footer.php";
+?>
+</html>

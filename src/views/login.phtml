@@ -1,0 +1,38 @@
+<?php 
+require "src/partial/header.php";
+require "functions/registrationController.php";
+if(is_logged_in()){
+  header('Location: home');
+}
+
+if (isset($_GET["failed"])) {
+  echo '<script>alert("Failed to log in")</script>';
+}
+
+
+?>
+
+
+      <form id="form" method="post" onsubmit="return validateMyForm();" action="functions/loginValidate.php" class="form">
+        <h2>Sign In</h2>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="text" name="email" placeholder="Enter email" />
+          <small>Error Message</small>
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="Enter password" />
+          <small>Error Message</small>
+        </div>
+        <div class="toggle-logged-container">
+                <p>Keep me logged in:</p>
+                <label class="toggle-logged"> <input type="checkbox" name="logged"> <span class="slider"></span> </label>
+        </div>
+              
+        <input type="submit" value="Sign In" class="login-btn" />
+        <a class="forgotPassword" href="resetPassword">Forgot Password?</a>
+      </form>
+<?php
+  require "src/partial/footer.php";
+?>

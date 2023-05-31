@@ -1,0 +1,83 @@
+<?php
+require "src/partial/header.php";
+if(!is_logged_in()){
+  header('Location: home');
+}
+?>
+
+
+
+<div class="pageContainer">
+
+  <div class="sourceBox" id="sourceBox">
+    <div class="boxVideo">Vidoe Files</div>
+    <div class="boxAudio">Audio Files</div>
+  </div>
+  <div class="jobContainerWrapper">
+  <form action="src/jobSubmitter/jobSubmitter.php" onsubmit="validateJobSubmission(event);" method="post">
+  
+  <div class = "jobHeader">
+    <div class ="videoSourceHeader">Video Source</div>
+    <div class ="audioSourceHeader">Audio Source</div>
+    <div class ="codecHeader">Codec</div>
+    <div class ="containerHeader">Container</div>
+    <div class ="presetHeader">Preset</div>
+    <div class ="widthHeader">Width</div>
+    <div class ="heightHeader">Height</div>
+    <div class ="bitrateHeader">Bitrate</div>
+    <div class ="frameRateHeader">Frame Rate</div>
+    <div class ="audioHeader">Audio</div>
+    <div class ="audioBitrateHeader">Audio bitrate</div>
+    <div class ="mailHeader">Mail</div>
+    <div class ="nameHeader">Name</div>
+  </div>
+  
+  
+    <div class="jobContainer" id="jobContainer"></div>
+      <div class="buttonContainer">
+      <div class="addButtonContainer">
+        <button type="button" class="button" id="add">Add job</button>
+      </div>
+      <div class="submitButtonContainer">
+        <input class="button" type="submit" value="Submit to queue">
+      </div>
+    </div>
+  </from>
+</div>
+</div>
+  <div id="context-menu">
+    <div class="item" id="duplicateJob">
+      <i class="fa fa-copy"></i>Duplicate Job
+    </div>
+    <div class="item" id="removeJob">
+      <i class="fa fa-cut"></i>Remove Job
+    </div>
+    <div class="item" id="savePreset">
+      <i class="fa fa-save"></i>Save Preset
+    </div>
+  </div>
+
+
+<!-- The Modal -->
+<div id="presetModal" class="modal-source">
+
+  <!-- Modal content -->
+  <div class="modal-source-content">
+
+    <div class="modal-source-body">
+      <input class="presetInput" id="presetName" placeholder="name of preset"></input>
+      <div class="presetButtonSubmittContainter">
+        <div class="button" id="presetButtonSubmit">Save</div>
+      </div>
+ 
+
+    </div>
+
+  </div>
+
+
+</body>
+<?php
+  require "src/partial/footer.php";
+?>
+</html>
