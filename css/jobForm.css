@@ -6,126 +6,125 @@
   grid-template-rows: 1fr 30px 5fr;
   justify-items: center;
 }
-  .sourceBox{
-      grid-row-start: 1;
-      grid-column-start: 2;
-      padding-bottom: 10px;
-      margin-bottom: 25px;
-      min-width: fit-content;
-      min-width: fit-content;
-      max-height: 40vh;
-      max-width: 80vh;
-      overflow: auto;
-    }
-  .sourceBox:hover{
-    
-      border-radius: 25px;
-      transition: 120ms transform ease-in-out;
-    }
-  
-    .boxAudio {
-    background-color: inherit;
-    padding: 10px;
-    text-align: center;
-    display: grid;
-    }
-  
-    .boxVideo {
-    background-color:inherit;;
-    padding: 10px;
-    text-align: center;
-    display: grid;
-    } 
-    
-    .draggableVideo, .draggableAudio {
-      align-self: center;
-      justify-self: center;
-      font-size: small;
-      padding: 7px 20px 7px 20px;
-      background-color: #D3D3D3	;
-      width: fit-content;
-      border: 1px solid black;
-      border-radius: 15px;
-      text-align: center;
-      margin-top: 3px;
-      cursor: grab;
-    }
-    
-    .draggableAudio {
-      background-color: #A9A9A9	;
-    }
+.sourceBox{
+  grid-row-start: 1;
+  grid-column-start: 2;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  min-width: fit-content;
+  min-width: fit-content;
+  max-height: 40vh;
+  max-width: 80vh;
+  overflow: auto;
+}
+.sourceBox:hover{
+  border-radius: 25px;
+  transition: 120ms transform ease-in-out;
+}
 
-    .draggableAudio:hover, .draggableVideo:hover {
-      filter: brightness(115%);
-    }
+.boxAudio {
+  background-color: inherit;
+  padding: 10px;
+  text-align: center;
+  display: grid;
+}
+
+.boxVideo {
+  background-color:inherit;;
+  padding: 10px;
+  text-align: center;
+  display: grid;
+} 
   
+.draggableVideo, .draggableAudio {
+  align-self: center;
+  justify-self: center;
+  font-size: small;
+  padding: 7px 20px 7px 20px;
+  background-color: #D3D3D3	;
+  width: fit-content;
+  border: 1px solid black;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 3px;
+  cursor: grab;
+}
   
-    .nonDraggableAudio, .nonDraggableVideo {
-      padding: 10px;
-      padding-top: 33%;
-  
-      background-color: inherit;
-      border: 2px solid black;
-      /* display: inline-block; */
-      font-size: small;
-      width: 70px;
-      height: 70px;
-      border-radius: 15px;
-      overflow: hidden;
-      white-space: nowrap!important;
-      text-overflow: ellipsis!important;
-    }
-    
-  
-    .nonDraggableAudio:hover, .nonDraggableVideo:hover {
-      overflow: visible;
-      max-width: max-content;
-      max-height: max-content;
-      height: 70px;
-      width: max-content;
-      position: absolute;
-      z-index: 100;
-    }  
+.draggableAudio {
+  background-color: #A9A9A9	;
+}
+
+.draggableAudio:hover, .draggableVideo:hover {
+  filter: brightness(115%);
+}
 
 
-    .draggable.dragging {
-      /* opacity: .9; */
-      cursor: grabbing;
-    }
-  
-  
-  .jobHeader{
-    display: grid;
-    padding: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    /* grid-row-start: 1;
-    grid-column-start: 2; */
-    grid-auto-columns: 100px;
-    align-items: center;
-    justify-items: center;
-    gap: 10px;
-    grid-auto-flow: column;
-    z-index: 1;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    position: relative;
-  }
+.nonDraggableAudio, .nonDraggableVideo {
+  padding: 10px;
+  padding-top: 33%;
 
-  .jobContainerWrapper{
-    height: fit-content;
-    overflow: hidden;
-    max-width: 90vmax;
-    
-    grid-row-start: 2;
-    grid-column-start: 2;
-    /* box-shadow: #000;
-    box-shadow: 200px; */
-    /* border-style: solid; */
-    border-color: #1b1a1a;
-    border-radius: 25px 25px 0px 0px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  }
-  .jobContainer{
+  background-color: inherit;
+  border: 2px solid black;
+  /* display: inline-block; */
+  font-size: small;
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  overflow: hidden;
+  white-space: nowrap!important;
+  text-overflow: ellipsis!important;
+}
+  
+
+.nonDraggableAudio:hover, .nonDraggableVideo:hover {
+  overflow: visible;
+  max-width: max-content;
+  max-height: max-content;
+  height: 70px;
+  width: max-content;
+  position: absolute;
+  z-index: 100;
+}  
+
+
+.draggable.dragging {
+  /* opacity: .9; */
+  cursor: grabbing;
+}
+
+
+.jobHeader{
+  display: grid;
+  padding: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* grid-row-start: 1;
+  grid-column-start: 2; */
+  grid-auto-columns: 100px;
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+  grid-auto-flow: column;
+  z-index: 1;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.jobContainerWrapper{
+  height: fit-content;
+  overflow: hidden;
+  max-width: 90vmax;
+  
+  grid-row-start: 2;
+  grid-column-start: 2;
+  /* box-shadow: #000;
+  box-shadow: 200px; */
+  /* border-style: solid; */
+  border-color: #1b1a1a;
+  border-radius: 25px 25px 0px 0px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.jobContainer{
   max-height:45vh;
   overflow-y: auto;
   overflow-x: auto;
@@ -136,49 +135,49 @@
   border-right: solid;
   border-color: #1b1a1a; */
   outline: #000;
-  }
+}
 
 
-  .job{
-    display: grid;
-    grid-auto-columns: 100px;
-    padding-left: 10px;
-    padding-right: 10px;
-    grid-auto-rows: 80px;
-    align-items: center;
-    border-color: #1b1a1a;
-    border-bottom: solid;
-    border-width: 1px;
-    gap: 10px;
-    position: relative;
-    min-width: max-content;
-  }
+.job{
+  display: grid;
+  grid-auto-columns: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  grid-auto-rows: 80px;
+  align-items: center;
+  border-color: #1b1a1a;
+  border-bottom: solid;
+  border-width: 1px;
+  gap: 10px;
+  position: relative;
+  min-width: max-content;
+}
 
 
-  .job:nth-child(even){
-    background-color:#e0e0e0;
-  }
-  .job:nth-child(odd){
-    background-color:#cccccc;
-  }
-  .job:nth-child(odd):hover{
-    background-color:#c2c2c2;
-    /* filter: brightness(105%); */
-    transition-delay: 50ms;
-  }
+.job:nth-child(even){
+  background-color:#e0e0e0;
+}
+.job:nth-child(odd){
+  background-color:#cccccc;
+}
+.job:nth-child(odd):hover{
+  background-color:#c2c2c2;
+  /* filter: brightness(105%); */
+  transition-delay: 50ms;
+}
 
-  .job:nth-child(even):hover{
-    background-color: #ebebeb;
-    /* filter: brightness(105%); */
-    transition-delay: 1120ms transform ease-in-out;
+.job:nth-child(even):hover{
+  background-color: #ebebeb;
+  /* filter: brightness(105%); */
+  transition-delay: 1120ms transform ease-in-out;
 
-  }
+}
 
 
   
 
 
-  .containerVideo, .containerAudio  {
+.containerVideo, .containerAudio  {
   background-color:inherit;
   grid-column-start: 1;
   border-radius: 15px;  
@@ -189,66 +188,66 @@
   align-items: center;
   justify-self: center;
   position: relative; 
-  }
+}
 
-  .containerAudio {
+.containerAudio {
   grid-column-start: 2;
-  }
+}
 
-  .job:nth-child(even) .containerAudio.highlight, .job:nth-child(even) .containerVideo.highlight{
-    background-color: inherit;
-    filter: brightness(80%);
-  }
-  .job:nth-child(odd) .containerAudio.highlight, .job:nth-child(odd) .containerVideo.highlight{
-    background-color: inherit;
-    filter: brightness(80%);
-  }
-  
-  .codecDropDown{
-    grid-column-start: 3;
-  }
+.job:nth-child(even) .containerAudio.highlight, .job:nth-child(even) .containerVideo.highlight{
+  background-color: inherit;
+  filter: brightness(80%);
+}
+.job:nth-child(odd) .containerAudio.highlight, .job:nth-child(odd) .containerVideo.highlight{
+  background-color: inherit;
+  filter: brightness(80%);
+}
 
-  .contDropDown{
-    grid-column-start: 4;
-  }
-  .presetDropDown{
-    grid-column-start: 5;
-  }
-  .resolutionWidthInput{
-    grid-column-start: 6;
-  }
-  .resolutionHeightInput{
-    grid-column-start: 7;
-  }
-  .bitrateInput{
-    grid-column-start: 8;
-  }
-  .framerateDropDown{
-    grid-column-start: 9;
-    align-self: center;
-  }
-  .audioCheckbox{
-    grid-column-start: 10;
-    justify-self: center;
-  }
-  .audioBitrateDropDown{
-    grid-column-start: 11;
-  }
-  .sendMailCheckbox{
-    grid-column-start: 12;
-    justify-self: center;
-  }
-  .outputNameInput{
-    grid-column-start: 13;
-    position: relative;
-    /* max-width: 50px; */
-    width: 70px;
-    justify-self: center;
-    text-overflow: ellipsis;
-    background-color: inherit;
-    border-style: none;
-    cursor: pointer;
-  }
+.codecDropDown{
+  grid-column-start: 3;
+}
+
+.contDropDown{
+  grid-column-start: 4;
+}
+.presetDropDown{
+  grid-column-start: 5;
+}
+.resolutionWidthInput{
+  grid-column-start: 6;
+}
+.resolutionHeightInput{
+  grid-column-start: 7;
+}
+.bitrateInput{
+  grid-column-start: 8;
+}
+.framerateDropDown{
+  grid-column-start: 9;
+  align-self: center;
+}
+.audioCheckbox{
+  grid-column-start: 10;
+  justify-self: center;
+}
+.audioBitrateDropDown{
+  grid-column-start: 11;
+}
+.sendMailCheckbox{
+  grid-column-start: 12;
+  justify-self: center;
+}
+.outputNameInput{
+  grid-column-start: 13;
+  position: relative;
+  /* max-width: 50px; */
+  width: 70px;
+  justify-self: center;
+  text-overflow: ellipsis;
+  background-color: inherit;
+  border-style: none;
+  cursor: pointer;
+}
 
 
 input[type=text]:focus {
@@ -300,66 +299,66 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
   
 
   
-  .presetDropDown::-webkit-scrollbar{
-    display: none;
-    scrollbar-width: none; 
-  }
+.presetDropDown::-webkit-scrollbar{
+  display: none;
+  scrollbar-width: none; 
+}
 
 
-  select {
-    appearance: none;
-    cursor: pointer;
-    height:40px;
-    border: none;
-    background-color:inherit;
-    backdrop-filter: brightness(90%);
-    border: #000 solid 1px;
-    border-radius: 5px;
-    cursor:pointer;
-    color: inherit;
-    text-align: center;
-    scrollbar-width: thin;
-  }
+select {
+  appearance: none;
+  cursor: pointer;
+  height:40px;
+  border: none;
+  background-color:inherit;
+  backdrop-filter: brightness(90%);
+  border: #000 solid 1px;
+  border-radius: 5px;
+  cursor:pointer;
+  color: inherit;
+  text-align: center;
+  scrollbar-width: thin;
+}
+
+select:hover {
+  appearance: none;
+  cursor: pointer;
+  height:40px;
+  backdrop-filter: brightness(70%);
+  cursor:pointer;
+  color: rgb(255, 255, 255);
+}
   
-  select:hover {
-    appearance: none;
-    cursor: pointer;
-    height:40px;
-    backdrop-filter: brightness(70%);
-    cursor:pointer;
-    color: rgb(255, 255, 255);
-  }
-  
-  option{
-    appearance: none;
-    color: rgb(0, 0, 0);
-    background-color: inherit;
-    text-align: center;
-  }
+option{
+  appearance: none;
+  color: rgb(0, 0, 0);
+  background-color: inherit;
+  text-align: center;
+}
 
-  input[type="checkbox"] {
-    /* Add if not using autoprefixer */
-    -webkit-appearance: none;
-    /* Remove most all native input styles */
-    appearance: none;
-    /* For iOS < 15 */
-    background-color: var(--form-background);
-    /* Not removed via appearance */
-    margin: 0;
-  
-    font: inherit;
-    color: currentColor;
-    width: 1.15em;
-    height: 1.15em;
-    border: 0.15em solid currentColor;
-    border-radius: 0.15em;
-    transform: translateY(-0.075em);
-    display: grid;
-    place-content: center;
-    cursor: pointer;
-  }
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(--form-background);
+  /* Not removed via appearance */
+  margin: 0;
 
-  input[type="checkbox"]::before {
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+input[type="checkbox"]::before {
   content: "";
   width: 0.65em;
   height: 0.65em;
@@ -379,24 +378,24 @@ input[type="checkbox"]:checked::before {
 
 
 
-  .containerAudio.highlight, .containerVideo.highlight {
-    background-color: rgb(179, 179, 179);
-    outline-color:  rgb(179, 179, 179);
-    outline-width: 15px;
-    overflow: visible;
-    transition:all 200ms ease-in-out;
-  }
+.containerAudio.highlight, .containerVideo.highlight {
+  background-color: rgb(179, 179, 179);
+  outline-color:  rgb(179, 179, 179);
+  outline-width: 15px;
+  overflow: visible;
+  transition:all 200ms ease-in-out;
+}
 
  
   
   
-  .delete {
+.delete {
   display: none;
   cursor: pointer;
-  }
+}
+
   
-  
-  .containerAudio:hover .delete, .containerVideo:hover .delete {
+.containerAudio:hover .delete, .containerVideo:hover .delete {
   display: block;
   
   display: flex;
@@ -415,194 +414,194 @@ input[type="checkbox"]:checked::before {
   position: absolute;
   z-index: 150;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  }
+}
 
-  .containerAudio:hover .delete:hover, .containerVideo:hover .delete:hover {
-    /* filter: brightness(80%); */
-    border: 2px solid rgb(255, 0, 0);
-  }
-
-
-  .buttonContainer{
-    display: grid;
-    margin: 7px;
-    grid-template-columns: 1fr 3fr 1fr;
-  }
+.containerAudio:hover .delete:hover, .containerVideo:hover .delete:hover {
+  /* filter: brightness(80%); */
+  border: 2px solid rgb(255, 0, 0);
+}
 
 
-  .submitButtonContainer{
-    display: grid;
-    grid-column-start: 3;
-    grid-row-start: 1;
-    padding-right: 5px;
-    align-items: center;
-    justify-items: center;
-    justify-self: right;
-  }
-
-  .addButtonContainer{
-    /* justify-self: left; */
-    grid-column-start: 2;
-    grid-row-start: 1;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-  }
+.buttonContainer{
+  display: grid;
+  margin: 7px;
+  grid-template-columns: 1fr 3fr 1fr;
+}
 
 
-  .button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 6px 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    background: #6E6D70;
-    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
-    color: #DFDEDF;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    margin-top: 4px;
-    margin-bottom: 4px;
-  }
-  
-  .button:hover {
-    box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
-    outline: 0;
-  }
-  .button:active {
-    background-color: #DFDEDF;
-    color: #6E6D70;;
-    outline: 0;
-  }
+.submitButtonContainer{
+  display: grid;
+  grid-column-start: 3;
+  grid-row-start: 1;
+  padding-right: 5px;
+  align-items: center;
+  justify-items: center;
+  justify-self: right;
+}
 
-  #context-menu {
-    position: fixed;
-    z-index: 100;
-    width: 140px;
-    height: 110px;
-    background-color: #1b1a1a;
-    transform: scale(0);
-    transform-origin:top left;
-  }
-  
-  
-  #context-menu.active {
-    transform: scale(1);
-    transition:transform 200ms ease-in-out;  
-  }
-  
-  #context-menu .item {
-    padding: 8px 10px;
-    font-size:15px;
-    color:#eee;
-  }
-  
-  #context-menu .item:hover{
-    background: #555;
-    cursor: pointer;
-  }
-  
-  #context-menu .item i {
-    display:inline-block;
-    margin-right: 5px;
-  }
-  
-  #context-menu hr {
-    margin: 2px 0px;
-    border-color: #555;
-  }
-  
-  input:invalid{
-    background-color: red;
-  }
-  
-  
-  /* jakie rzeczy modal nie wiem do poprawy sprzatania */
-  
-  .modal-source {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 111; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow-y: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
-    -webkit-animation-name: fadeIn; /* Fade in the background */
-    -webkit-animation-duration: 0.4s;
-    animation-name: fadeIn;
-    animation-duration: 0.4s;
-  }
-  
-  /* Modal Content */
-  .modal-source-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* top: 200; */
-    /* left: 20%; */
-    background-color: whitesmoke;
-    min-width: fit-content; 
-    -webkit-animation-name: slideIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: slideIn;
-    animation-duration: 0.4s;
-    border-radius: 16px 16px 16px 16px;
-  }
-  
+.addButtonContainer{
+  /* justify-self: left; */
+  grid-column-start: 2;
+  grid-row-start: 1;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
 
- 
-  
-  .modal-source-body {
-    padding: 2px 16px;
-    overflow-y: auto;
-    display: grid;
-    grid-auto-columns: auto;
-  }
-  
-  .presetInput{
-    display: grid;
-    grid-column-start: 1;
-    appearance: none;
-    border-style: none;
-    background-color: inherit;
-    margin-right: 10px;
-  }
 
-  .presetButtonSubmittContainter{
-    
-    display: grid;
-    grid-column-start: 2;
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #6E6D70;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+  color: #DFDEDF;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
 
-  }
+.button:hover {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+.button:active {
+  background-color: #DFDEDF;
+  color: #6E6D70;;
+  outline: 0;
+}
+
+#context-menu {
+  position: fixed;
+  z-index: 100;
+  width: 140px;
+  height: 110px;
+  background-color: #1b1a1a;
+  transform: scale(0);
+  transform-origin:top left;
+}
+
+
+#context-menu.active {
+  transform: scale(1);
+  transition:transform 200ms ease-in-out;  
+}
+
+#context-menu .item {
+  padding: 8px 10px;
+  font-size:15px;
+  color:#eee;
+}
+
+#context-menu .item:hover{
+  background: #555;
+  cursor: pointer;
+}
+
+#context-menu .item i {
+  display:inline-block;
+  margin-right: 5px;
+}
+
+#context-menu hr {
+  margin: 2px 0px;
+  border-color: #555;
+}
+
+input:invalid{
+  background-color: red;
+}
 
   
-  /* Add Animation */
-  @-webkit-keyframes slideIn {
-    from {top: -300px; opacity: 0} 
-    to {top: 200; opacity: 1}
-  }
+  /* cleanUP*/
+
+.modal-source {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 111; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow-y: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+}
+
+/* Modal Content */
+.modal-source-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* top: 200; */
+  /* left: 20%; */
+  background-color: whitesmoke;
+  min-width: fit-content; 
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s;
+  border-radius: 16px 16px 16px 16px;
+}
   
-  @keyframes slideIn {
-    from {top: -300px; opacity: 0}
-    to {top: 200; opacity: 1}
-  }
+
+
+
+.modal-source-body {
+  padding: 2px 16px;
+  overflow-y: auto;
+  display: grid;
+  grid-auto-columns: auto;
+}
+
+.presetInput{
+  display: grid;
+  grid-column-start: 1;
+  appearance: none;
+  border-style: none;
+  background-color: inherit;
+  margin-right: 10px;
+}
+
+.presetButtonSubmittContainter{
   
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0} 
-    to {opacity: 1}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0} 
-    to {opacity: 1}
-  }
-  
+  display: grid;
+  grid-column-start: 2;
+
+}
+
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {top: -300px; opacity: 0} 
+  to {top: 200; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {top: -300px; opacity: 0}
+  to {top: 200; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
 
