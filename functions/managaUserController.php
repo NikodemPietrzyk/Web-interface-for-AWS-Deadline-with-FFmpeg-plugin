@@ -28,6 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         echo '<script>alert("Mail sent")</script>';
         header("Refresh:0");
     }
+    //hardcoded admin ID
     if($_POST['id'] != 1 && $_POST['id'] != 4){
         if($_POST['type']=='Active'){
             $userId = $_POST['id'];
