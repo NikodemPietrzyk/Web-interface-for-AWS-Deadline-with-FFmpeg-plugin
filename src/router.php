@@ -13,21 +13,23 @@ switch($path) {
             break;
         }
 
-    case "/api/v1/jobStatus":
-        $filename = __DIR__ . "/api/v1/jobStatus.php";
-        if(file_exists($filename)) {
-            require __DIR__ . "/api/v1/jobStatus.php";
-            break;
+    default: 
+        if (strpos($path, "/api/v1/") === 0) {
+            $api = substr($path, strlen("/api/v1/"));
+            $filename = __DIR__ . "/api/v1/" . $api . ".php";
+            if (file_exists($filename)) {
+                require $filename;
+            }
+        } else {
+            $filename = __DIR__ . "/views" . $path . ".phtml";
+            if (file_exists($filename)) {
+                require $filename;
+            } else {
+                $filename = __DIR__ . "/views/404.phtml";
+                require $filename;
+            }
         }
-
-    default: $filename = __DIR__ . "/views" . $path . ".phtml";
-    if(file_exists($filename)) {
-        require $filename;
         break;
-    }else{
-        $filename = __DIR__ . "/views/404.phtml";
-        require $filename;
-    }
     
 }
 ?>
