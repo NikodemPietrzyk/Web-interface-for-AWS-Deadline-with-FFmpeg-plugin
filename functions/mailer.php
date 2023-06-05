@@ -3,11 +3,11 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
-require '/srv/PHPMailer/src/Exception.php';
-require '/srv/PHPMailer/src/PHPMailer.php';
-require '/srv/PHPMailer/src/SMTP.php';
-require_once __DIR__ . '/../../config.php';
 
+require_once __DIR__ . '/../../config.php';
+require PHPMailer_PATH . '/PHPMailer/src/Exception.php';
+require PHPMailer_PATH . '/PHPMailer/src/PHPMailer.php';
+require PHPMailer_PATH . '/PHPMailer/src/SMTP.php';
 
 class BaseMailer extends PHPMailer
 {
