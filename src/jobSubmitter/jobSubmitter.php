@@ -168,7 +168,7 @@ function getOutputPathFromDeadlineJob($jobData, $newFileName){
         $outputFile[0] = $jobData['Props']['PlugInfo']['OutputFile'];
         $outputFile[1] = substr(end(explode("/",$jobData['Props']['PlugInfo']['OutputFile'])), 0, -4);
     }
-    debug_to_console($outputFile);
+    //debug_to_console($outputFile);
     return $outputFile;
 }
 
@@ -197,9 +197,8 @@ function generatePluginInfo($codec, $container, $videoPath, $audioPath, $resolut
  
     
     $outputPath = $outputDirectoryPath . $outputName;
-    debug_to_console($outputPath);
-    //$outputPath = 'PATH . /_users/Nikodem/'.$outputName; // for testing, TO DO remove later
-    debug_to_console($outputPath);
+    //debug_to_console($outputPath);
+
     $padding = (strtolower(pathinfo($videoPath, PATHINFO_EXTENSION)) == 'dpx');
 
     $vf = '-vf colormatrix=bt601:bt709'; // default filter
@@ -374,14 +373,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     $jobId = $_GET["jobId"];
     $name = $_GET["name"];
     $presetId = $_GET["preset"];
-    // echo ($jobId);
-    // echo ($name);
-    echo ($presetId);
-    // echo json_encode($jobId);
-
     $userData = getUserData($_SESSION["user_id"]);
     $jobData = getJobDataFromDeadline($server, $jobId);
-    echo ($jobData);
+
     if(!empty($jobData)){
         if(!$name && !$presetId){
             if(requeueJob($server, $jobId) == "Success"){
