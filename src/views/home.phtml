@@ -9,10 +9,5 @@ function debug_to_console($data) {
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
 
-
-debug_to_console($_SESSION["email"]);
-debug_to_console($_SESSION["user_id"]);
-debug_to_console($_SESSION["type"]);
-
 require "src/partial/footer.php";
 ?>

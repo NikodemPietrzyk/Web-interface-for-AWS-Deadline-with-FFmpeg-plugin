@@ -30,7 +30,7 @@
 </body>
 
 <?php
-include "functions/addJS.php";
+  include "functions/addJS.php";
 ?>
 </html>
 
