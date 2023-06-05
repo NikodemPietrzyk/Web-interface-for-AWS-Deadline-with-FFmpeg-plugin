@@ -174,7 +174,7 @@ function getOutputPathFromDeadlineJob($jobData, $newFileName){
 
 function createOutPutPath($path){
 
-    $dir = PATH . explode("/", $path)[3] . "/output/";
+    $dir = PATH . "/" . explode("/", $path)[3] . "/output/";
     if(!is_dir($dir)){
         mkdir($dir, 0700);
     }
@@ -190,7 +190,7 @@ function createOutPutPath($path){
 }
 
 function generatePluginInfo($codec, $container, $videoPath, $audioPath, $resolutionHeight, $resolutionWidth, $outputName ,$bitrate, $audio, $audioBitrate, $frameRate){
-    $outputDirectoryPath = PATH . explode("/", $videoPath)[3]. "/output/". date("Ymd") . "/Prev/";
+    $outputDirectoryPath = PATH . "/" . explode("/", $videoPath)[3]. "/output/". date("Ymd") . "/Prev/";
     if(!is_dir($outputDirectoryPath)){
         createOutPutPath($outputDirectoryPath);
     }
