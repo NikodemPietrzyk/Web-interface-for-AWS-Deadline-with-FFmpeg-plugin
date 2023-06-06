@@ -1,0 +1,5 @@
+README.md merge=ours
+config.php merge=ours
+.gitattributes merge=ours
+.gitignore merge=ours
+/src/views/test.phtml merge=ours
