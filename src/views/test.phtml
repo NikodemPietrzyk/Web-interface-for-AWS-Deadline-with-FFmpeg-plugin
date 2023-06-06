@@ -1,5 +1,17 @@
 <?php
-require "src/partial/header.php";
+require_once "src/partial/header.php";
 
-var_dump($_SERVER["SERVER_ADDR"]);
+$videoPath = "/video/" . PATH."/_users/Nikodem/AP0_fromfullACES_maya_REC.mp4";
+
+?>
+
+<div class="video-container">
+    <video controls>
+        <source src="<?php echo $videoPath; ?>" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<?php
+require_once "src/partial/footer.php";
 ?>

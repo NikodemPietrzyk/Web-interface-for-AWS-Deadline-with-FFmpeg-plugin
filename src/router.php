@@ -5,6 +5,29 @@ require_once "../config.php";
 $requestUri = parse_url($_SERVER['REQUEST_URI']);
 $path = $requestUri['path'];
 
+// Check if the path starts with '/video/'
+if (strpos($path, '/video/') === 0) {
+    // Remove the '/video/' prefix from the path
+    $videoPath = substr($path, strlen('/video'));
+
+
+    // Check if the video file exists
+    if (file_exists($videoPath)) {
+        // Set the appropriate headers to indicate a video file
+        header('Content-Type: video/mp4');
+        header('Content-Length: ' . filesize($videoPath));
+
+        // Output the video file content
+        readfile($videoPath);
+        exit;
+    }
+}
+
+
+
+
+
+
 switch($path) {
     case "/":
         $filename = __DIR__ . "/views/home.phtml";
