@@ -19,11 +19,11 @@ function getJobData($jobId){
 }
 
 function getUserMail($userId){
-    $query = "SELECT email FROM user WHERE ID = '" . $userId . "'";
+    $query = "SELECT email, name, surname FROM user WHERE ID = '" . $userId . "'";
     $db_handle = new DBController();
-    $email = $db_handle->runQuery($query);
+    $userData = $db_handle->runQuery($query);
     unset($db_handle);
-    return $email[0]['email'];
+    return $userData[0];
 }
 
 
@@ -69,11 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
 // Function to handle the job completion event.
 function handleJobCompleted($jobId, $jobStatus) {
     $jobData = getJobData($jobId);
-    $recipient = getUserMail($jobData[0]["user_id"]);
+    $userData = getUserMail($jobData[0]["user_id"]);
+    sendCompletedJobMail($userData['email'], $jobId, $jobStatus, $jobData[0]["output_file"]);
     if($jobData[0]['send_email'] == 1){
-        sendCompletedJobMail($recipient, $jobId, $jobStatus, $jobData[0]["output_file"], True);
-    }else{
-        sendCompletedJobMail($recipient, $jobId, $jobStatus, $jobData[0]["output_file"], False);
+        sendCloudLinkMail($userData, $jobData[0]["output_file"]);
     }
     
     error_log("Job completed: $jobId");
@@ -94,7 +93,7 @@ function handleJobRendering($jobId, $jobStatus) {
 
 function handleJobFailed($jobId, $jobStatus) {
     $jobData = getJobData($jobId);
-    $recipient = getUserMail($jobData[0]["user_id"]);
+    $recipient = getUserMail($jobData[0]["user_id"])['email'];
     sendFailedJobMail($recipient, $jobId, $jobStatus);
     if($recipient != NULL){
         sendErrorLogMail($jobId, $status);
