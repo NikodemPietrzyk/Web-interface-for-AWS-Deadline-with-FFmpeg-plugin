@@ -8,6 +8,7 @@ require_once __DIR__ . '/../../config.php';
 require PHPMailer_PATH . '/PHPMailer/src/Exception.php';
 require PHPMailer_PATH . '/PHPMailer/src/PHPMailer.php';
 require PHPMailer_PATH . '/PHPMailer/src/SMTP.php';
+require_once 'cloudController.php';
 
 class BaseMailer extends PHPMailer
 {
@@ -59,6 +60,79 @@ function generateFailedJobBody($jobId){
 
     return $body;
 }
+
+function generateJobBody($link, $fileName, $user){
+    $htmlContent = "
+    <html>
+    <head>
+        <style>
+            .button {
+                background-color: #87CEFA; 
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                transition: background-color 0.5s ease;
+                border-radius: 6px;
+            }
+
+            .button:hover {
+                background-color: black;
+            }
+
+            .centered-box {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin: 0 auto;
+                border: 1px solid #000;
+                padding: 20px;
+                width: 50%;
+                box-sizing: border-box;
+                border-radius: 15px;
+                border-style: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='centered-box'>
+            <p>$user shared: <b> $fileName </b> with You</p>";
+
+    if($link){
+        $htmlContent .= "
+        <a href=\"$link\" class=\"button\">Download</a>";
+    } else {
+        $htmlContent .= "<p>You will find the file \"$fileName\" attached to this email.</p>";
+    }
+
+    $htmlContent .= "
+        </div>
+    </body>
+    </html>";
+
+    return $htmlContent;
+}
+
+
+function generateAltBody($link, $fileName, $user){
+    $textContent = "$user shared a  $fileName with You\n";
+
+    if($link){
+        $textContent .= "Please use the following link to download the file: $link\n";
+    } else {
+        $textContent .= "You will find the file \"$fileName\" attached to this email.\n";
+    }
+
+    return $textContent;
+}
+
+
 
 function extractArgumentsFromFFmpegCommand(string $command){
     
@@ -132,19 +206,13 @@ function getJobDataFromDeadline($jobId){
     return $jobDataFromDeadline[0]['Props']['PlugInfo'];
 }
 
-function sendCompletedJobMail($recipient, $jobId, $status, $outputPath, $sendMail){
+function sendCompletedJobMail($recipient, $jobId, $status, $outputPath){
     $mail = new DefaultMailer();
 
     try {
         //Add a recipient
         $mail->addAddress($recipient);     
 
-        //Attachments
-        if(file_exists($outputPath)){
-            if(filesize($outputPath) <= 15000000 && $sendMail){
-                $mail->addAttachment($outputPath);        
-            }
-        }
         $fileName = end(explode("/", $outputPath));               
         $mail->Subject = $fileName . " " .$status;
         $mail->Body    = "<b>Job " . $jobId . " completed!</b><br>" .$outputPath.
@@ -161,6 +229,42 @@ function sendCompletedJobMail($recipient, $jobId, $status, $outputPath, $sendMai
     return TRUE;
 }
 
+
+
+function sendCloudLinkMail($userData, $outputPath){
+    $mail = new DefaultMailer();
+    $fileName = end(explode("/", $outputPath));
+    $link = "";
+
+    try {
+        //Add a recipient
+        $mail->addAddress($userData['email']);     
+        $user = $userData['name'] ." ". $userData['surname'];
+ 
+        if(file_exists($outputPath)){
+            if(filesize($outputPath) <= 15000000){ // Attach if file size is less than 15MB
+                $mail->addAttachment($outputPath);  
+                $mail->Body    = generateJobBody(null, $fileName, $user); 
+                $mail->AltBody = generateAltBody(null, $fileName, $user);
+            }else{
+                $link = generateCloudLink($outputPath, $userData['email']);
+                $mail->Body    = generateJobBody($link, $fileName, $user); 
+                $mail->AltBody = generateAltBody($link, $fileName, $user);
+            }
+        }else{
+            error_log("Failed to find while sending email: $outputPath");
+        }
+         
+        $mail->Subject = $user ." shared with you: " . $fileName;
+
+
+        $mail->send();
+        echo 'Message has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+    return TRUE;
+}
 
 
 
