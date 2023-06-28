@@ -17,4 +17,8 @@ define('DB_USER', '');
 define('DB_PASSWORD', '');
 define('DB_NAME', '');
 define('PHPMailer_PATH', '');
+define('OWNCLOUD_URL', '');
+define('OWNCLOUD_USERNAME', '');
+define('OWNCLOUD_PASSWORD', '');
+define('OWNCLOUD_PATH', '');
 ?>
