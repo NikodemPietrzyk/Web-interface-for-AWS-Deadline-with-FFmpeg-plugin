@@ -20,6 +20,11 @@ if (strpos($path, '/video/') === 0) {
         // Output the video file content
         readfile($videoPath);
         exit;
+    }else{
+        // Handle the case where the file doesn't exist
+        header("HTTP/1.0 404 Not Found");
+        echo "File not found: " . htmlspecialchars($videoPath);
+        exit;
     }
 }
 

@@ -24,8 +24,9 @@ function debug_to_console($data) {
     <!-- <div class ="containerHeader">Container</div> -->
     <div class ="heightHeader">Name</div>
     <div class ="statusHeader">Status</div>
-    <div class ="idHeader">Id</div>
     <div class ="presetHeader">Preset</div>
+    
+    
   </div>
   
   
@@ -48,10 +49,10 @@ foreach ($result as $row)  {
     echo('<form method="post" action="" class="job" onsubmit="validateResubmit(event);">');
     echo('<input type="hidden" name="usedPreset" value="' . $preset . '">');
     echo('<input type="hidden" name="originalName" value="' . $outputName . '">');
+    echo('<input type="hidden" name="jobId" value="' . $row["job_id"] . '">');
     echo("<div class=date>" . $row["submission_date"] . "</div>");
     echo('<input class="outputName" name="outputName" autocomplete="off" type="text" value="' . $outputName . '">'); 
     echo("<div class=status>" . $row["status"] . "</div>");
-    echo("<div class=jobId>" . $row["job_id"] . "</div>");
     echo('<select class="preset" name="preset">');
     echo('<option value="custom">Custom</option>');
 
@@ -64,8 +65,13 @@ foreach ($result as $row)  {
     }
 
     echo("</select>");
+    if ($row['status']=="completed"){
+        echo('<div class="playButtonContainer"><input class="button" data-video="' ."/video/".$row["output_file"].'" type="button" value="Play"></div>');
+    }
     echo('<div class="buttonContainer"><input class="button" name="type" type="submit" value="Resubmit"></div>');
     echo('</form>');
+    
+
 }
 
 echo "</div>";
@@ -83,7 +89,17 @@ echo "</div>";
 echo "</div>";
 ?>
 </div>
+
+
 </div>
+</div>
+<div id="videoModal" class="videoModal">
+    <div class="videoModal-content">
+        <video id="videoPlayer" width="600" controls>
+            <source type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
 </div>
 <?php
 require "src/partial/footer.php";

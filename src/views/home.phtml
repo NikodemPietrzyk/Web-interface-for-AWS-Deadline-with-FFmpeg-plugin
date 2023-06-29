@@ -1,5 +1,5 @@
 <?php
-require "src/partial/header.php";
+require_once "src/partial/header.php";
 
 function debug_to_console($data) {
     $output = $data;
@@ -9,5 +9,5 @@ function debug_to_console($data) {
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
 
-require "src/partial/footer.php";
+require_once "src/partial/footer.php";
 ?>

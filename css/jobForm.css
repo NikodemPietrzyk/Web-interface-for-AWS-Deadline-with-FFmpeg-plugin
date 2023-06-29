@@ -1,11 +1,5 @@
   
-.pageContainer{
-  display: grid;
-  grid-row-start: 2;
-  grid-template-columns: 1fr 5fr 1fr;
-  grid-template-rows: 1fr 30px 5fr;
-  justify-items: center;
-}
+
 .sourceBox{
   grid-row-start: 1;
   grid-column-start: 2;

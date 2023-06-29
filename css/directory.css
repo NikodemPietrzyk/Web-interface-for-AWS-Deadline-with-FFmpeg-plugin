@@ -4,12 +4,6 @@
 }
 
 
-.pageContainer{
-    display: grid;
-    grid-row-start: 2;
-    grid-template-columns: 1fr 3fr 1fr;
-}
-  
 
 .inputContainer{
     grid-column-start: 1;
