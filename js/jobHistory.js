@@ -7,7 +7,7 @@ function validateResubmit(event){
 
     const originalName = form.querySelector("[name=originalName]").value;
     const name = form.querySelector("[name=outputName]").value;
-    let jobId = form.querySelector("[class=jobId]").innerText;
+    let jobId = form.querySelector("[name=jobId]").value;
     console.log(preset);
 
     
@@ -88,4 +88,40 @@ function requeueJob(jobId, name, preset){
     }
 }
 
+
+// Get modal elements
+const modal = document.getElementById("videoModal");
+const videoPlayer = document.getElementById("videoPlayer");
+let isClearingSrc = false;  // Flag to indicate whether we're intentionally clearing the src
+
+// Add click event listener to play button
+document.querySelectorAll('.button').forEach(button => {
+    button.addEventListener('click', function() {
+        if (button.getAttribute("value") == "Play") {
+            videoPlayer.src = button.dataset.video;  // Set the video source
+            modal.style.display = "flex";  // Display the modal
+
+            videoPlayer.onerror = function() {
+                if (!isClearingSrc) {  // Only show the error message if we're not intentionally clearing the src
+                    alert('Error: The video could not be loaded.');
+                    modal.style.display = "none";  // Hide the modal
+                }
+            };
+        }
+    });
+});
+
+videoPlayer.addEventListener('loadeddata', function() {
+    // Reset the flag once data is loaded successfully
+    isClearingSrc = false;
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        isClearingSrc = true;  // Indicate that we're intentionally clearing the src
+        videoPlayer.src = "";  // Reset the video src to stop the video
+        modal.style.display = "none";
+    }
+}
 
