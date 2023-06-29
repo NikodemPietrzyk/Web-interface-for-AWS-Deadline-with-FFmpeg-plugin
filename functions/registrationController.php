@@ -21,6 +21,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	        $count = $db_handle->numRows($query);
             if($count==0) {
               $password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+              if($email == MAINTAINER || $email == IT_MAIL){  
+                $role = 2;
+              }
               $query = "INSERT INTO user(name,surname,email,password,type,status) VALUES('$firstname','$surname','$email','$password','$role','$status')";
               $current_id = $db_handle->insertQuery($query);
               if(!empty($current_id)) {
