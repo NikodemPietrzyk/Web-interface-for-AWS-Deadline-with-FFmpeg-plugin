@@ -21,4 +21,5 @@ define('OWNCLOUD_URL', '');
 define('OWNCLOUD_USERNAME', '');
 define('OWNCLOUD_PASSWORD', '');
 define('OWNCLOUD_PATH', '');
+define('OWNCLOUD_LINK_PASSWORD', '');
 ?>
