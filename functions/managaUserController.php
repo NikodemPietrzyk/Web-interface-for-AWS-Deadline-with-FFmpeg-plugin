@@ -13,9 +13,9 @@ function getUserData($id){
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
   {
+    $userId = $_POST['id'];
+    $userData = getUserData($userId);
     if($_POST['type']=='Reset'){
-        $userId = $_POST['id'];
-        $userData = getUserData($userId);
         $token = uniqid();
         $email = $userData['email'];
         $db_handle = new DBController();
@@ -29,9 +29,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         header("Refresh:0");
     }
     //hardcoded admin ID
-    if($_POST['id'] != 1 && $_POST['id'] != 4){
+    if($userData['email'] != MAINTAINER && $userData['email'] != IT_MAIL){
         if($_POST['type']=='Active'){
-            $userId = $_POST['id'];
             $db_handle = new DBController();
             $update = "UPDATE user SET status = '0' WHERE ID = '$userId'";
             $db_handle->updateQuery($update);
@@ -40,8 +39,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             header("Refresh:0");
         }
         if($_POST['type']=='Disabled'){
-            $userId = $_POST['id'];
-            $userData = getUserData($userId);
             $email = $userData['email'];
             $db_handle = new DBController();
             $update = "UPDATE user SET status = '1'WHERE ID = '$userId'";
@@ -51,8 +48,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             header("Refresh:0");
         }
         if($_POST['type']=='Update'){
-            $userId = $_POST['id'];
-            $userData = getUserData($userId);
             print_r($_POST);
             $db_handle = new DBController();
             $type = $_POST['usertype'];
