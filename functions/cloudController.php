@@ -46,7 +46,7 @@ function generateCloudLink(string $path_to_original_file, string $email)
     }
     $api_endpoint = OWNCLOUD_URL . "/ocs/v1.php/apps/files_sharing/api/v1/shares";
 
-    $link_password = "orka";
+    $link_password = OWNCLOUD_LINK_PASSWORD;
 
     $api_endpoint = OWNCLOUD_URL . "/ocs/v1.php/apps/files_sharing/api/v1/shares";
 
