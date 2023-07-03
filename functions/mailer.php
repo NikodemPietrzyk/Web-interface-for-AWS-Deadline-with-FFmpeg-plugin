@@ -242,7 +242,7 @@ function sendCloudLinkMail($userData, $outputPath){
         $user = $userData['name'] ." ". $userData['surname'];
  
         if(file_exists($outputPath)){
-            if(filesize($outputPath) <= 15000000){ // Attach if file size is less than 15MB
+            if(!$userData['cloud'] && filesize($outputPath) <= 15000000){ // Attach if file size is less than 15MB
                 $mail->addAttachment($outputPath);  
                 $mail->Body    = generateJobBody(null, $fileName, $user); 
                 $mail->AltBody = generateAltBody(null, $fileName, $user);
