@@ -48,7 +48,7 @@ include_once "functions/addCSS.php";
               <button class="dropbtn">User</button>
               <div class="dropdown-content">
                 <a href="presets">Presets</a>  
-                <a href="resetPassword">Settings</a>
+                <a href="userSettings">Settings</a>
               </div>
             </div></li>            
         <?php if(is_admin()){?>
