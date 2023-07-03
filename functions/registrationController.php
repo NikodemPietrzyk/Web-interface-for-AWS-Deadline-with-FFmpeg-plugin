@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
       $email = $_POST['email'];
       $password = $_POST['password'];
       $role = 1;
-      $status = 0;
+      $status = 1;
         if(preg_match($validateName,$firstname) && preg_match($validateName,$surname) && filter_var($email, FILTER_VALIDATE_EMAIL) && preg_match($validatePassword,$password))//TO DO
         {
 	        $db_handle = new DBController();
