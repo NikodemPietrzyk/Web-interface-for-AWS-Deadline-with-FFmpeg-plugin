@@ -38,6 +38,9 @@ if ($path === "/jobHistory"){ ?>
       <script src="js/jobHistory.js"> </script>
 <?php }
 
+if ($path === "/userSettings"){ ?>
+      <script src="js/userSettings.js"> </script>
+<?php }
 
 
 ?>

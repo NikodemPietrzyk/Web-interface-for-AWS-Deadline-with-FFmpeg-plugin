@@ -32,7 +32,9 @@ if ($path === "/manageUsers"){ ?>
     <link rel="stylesheet" href="css/manageUsers.css" />
 <?php }
 
-
+if ($path === "/userSettings"){ ?>
+    <link rel="stylesheet" href="css/userSettings.css" />
+<?php }
 
 ?>
 
