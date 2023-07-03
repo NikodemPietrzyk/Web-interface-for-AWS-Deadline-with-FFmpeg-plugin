@@ -141,7 +141,7 @@ This project provides a web interface for the AWS ThinkBox Deadline render manag
 1. AWS Thinkbox Deadline with web client as well as at leat one render node with FFmpeg plugin
 2. PHPMailer
 3. SQL DB
-4. Event handler for deadline
+4. [Event handler for deadline](https://github.com/NikodemPietrzyk/Event-Plugin-Sending-Job-Status-For-Thinkbox-Deadline)
 5. Apache or some web server
 
 #### Installation
