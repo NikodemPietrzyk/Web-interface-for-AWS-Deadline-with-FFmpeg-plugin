@@ -102,7 +102,7 @@ function generateJobBody($link, $fileName, $user){
     </head>
     <body>
         <div class='centered-box'>
-            <p>$user shared: <b> $fileName </b> with You</p>";
+            <p>$user shared with you: <b> $fileName </b></p>";
 
     if($link){
         $htmlContent .= "
