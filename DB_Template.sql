@@ -145,6 +145,8 @@ CREATE TABLE `user` (
   `cookie` varchar(255) DEFAULT NULL,
   `status` tinyint(1) NOT NULL,
   `priority` int(11) DEFAULT 50,
+  `notification` boolean NOT NULL DEFAULT 1;
+  `cloud` boolean NOT NULL DEFAULT 0,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
