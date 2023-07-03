@@ -66,7 +66,7 @@ foreach ($result as $row)  {
 
     echo("</select>");
     if ($row['status']=="completed"){
-        echo('<div class="playButtonContainer"><input class="button" data-video="' ."/video/".$row["output_file"].'" type="button" value="Play"></div>');
+        echo('<div class="playButtonContainer"><input class="button" data-video="' ."/api/v1/video?path=".$row["output_file"].'" type="button" value="Play"></div>');
     }
     echo('<div class="buttonContainer"><input class="button" name="type" type="submit" value="Resubmit"></div>');
     echo('</form>');
