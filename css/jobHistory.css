@@ -166,6 +166,8 @@
     cursor:pointer;
     color: inherit;
     text-align: center;
+    text-overflow: ellipsis;
+    padding: 5px;
     scrollbar-width: thin;
   }
   
@@ -184,6 +186,7 @@
     color: rgb(0, 0, 0);
     background-color: inherit;
     text-align: center;
+
   }
 
   input[type=text]:hover {

@@ -311,6 +311,8 @@ select {
   cursor:pointer;
   color: inherit;
   text-align: center;
+  text-overflow: ellipsis;
+  padding: 5px;
   scrollbar-width: thin;
 }
 
