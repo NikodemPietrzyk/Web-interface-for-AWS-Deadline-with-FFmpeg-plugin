@@ -105,7 +105,7 @@ function generateJobInfo($outputName, $userData, $renderNodes){
         'Allowlist' => $renderNodes,
         'Priority' => $priority,
         'OverrideJobFailureDetection' => True,
-        'FailureDetectionJobErrors' => '2',
+        'FailureDetectionJobErrors' => '4',
     );
 
     return $jobInfo;
