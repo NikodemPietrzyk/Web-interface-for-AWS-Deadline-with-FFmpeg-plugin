@@ -7,6 +7,7 @@ session_start();
 $server = DEADLINE_ADRESS;
 $renderNodes = RENDER_NODES;
 
+
 function makeEvenNumber($input){
     if($input % 2 ==0){
         return $input;
@@ -105,7 +106,8 @@ function generateJobInfo($outputName, $userData, $renderNodes){
         'Allowlist' => $renderNodes,
         'Priority' => $priority,
         'OverrideJobFailureDetection' => True,
-        'FailureDetectionJobErrors' => '4',
+        'FailureDetectionJobErrors' => '6',
+        'PostJobScript' => PATH_TO_POST_JOB_SCRIPT,
     );
 
     return $jobInfo;
