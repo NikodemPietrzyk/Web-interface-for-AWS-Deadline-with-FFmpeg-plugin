@@ -22,4 +22,5 @@ define('OWNCLOUD_USERNAME', '');
 define('OWNCLOUD_PASSWORD', '');
 define('OWNCLOUD_PATH', '');
 define('OWNCLOUD_LINK_PASSWORD', '');
+define('PATH_TO_POST_JOB_SCRIPT', '');
 ?>
