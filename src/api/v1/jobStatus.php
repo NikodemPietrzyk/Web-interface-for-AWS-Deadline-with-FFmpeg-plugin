@@ -26,6 +26,22 @@ function getUserData($userId){
     return $userData[0];
 }
 
+function fastResponse($message = 'processing', $status = 200) {
+    ignore_user_abort(true);
+    set_time_limit(0);
+    ob_start();
+
+    // send the response
+    echo json_encode(['message' => $message]);
+
+    header('Connection: close');
+    header('Content-Length: '.ob_get_length());
+    http_response_code($status); // Set the response status code
+
+    ob_end_flush();
+    ob_flush();
+    flush();
+}
 
 
 
@@ -43,6 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     if(!empty($jobStatus) && !empty($jobId)){
         updateJobStatus($jobId, $jobStatus);
     }
+
+    fastResponse(); // Call fast response function here. 
 
     switch ($jobStatus) {
         case 'completed':
